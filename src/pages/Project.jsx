@@ -2,7 +2,7 @@ import ecommerce from "../assets/image3.jpg";
 import food from "../assets/image4.jpg";
 import blinkit from "../assets/image2.jpg";
 import fullstack from "../assets/image5.jpg";
-import freelancer from "../assets/image6.jpg";
+import freelance from "../assets/image6.jpg";
 
 const fullStackProjects = [
   {
@@ -13,9 +13,9 @@ const fullStackProjects = [
     link: "https://propery-sell.netlify.app/",
   },
   {
-    title: "Freelancer Platform",
-    image: freelancer,
-    desc: "Full-stack freelance marketplace application with user authentication, project listings, and real-time communication features.",
+    title: "Property Dealing",
+    image: freelance,
+    desc: "Full-stack real estate application featuring user authentication, property filtering (buy/rent/sell), and dynamic listings with responsive UI.",
     techStack: ["React.js", "TailwindCSS", "Redux Toolkit", "Python", "REST API"],
     link: "https://freelancerand.netlify.app/",
   },
@@ -45,115 +45,44 @@ const frontEndProjects = [
   },
 ];
 
-function ProjectCard({ project, type }) {
+function ProjectCard({ project, accent }) {
   return (
     <div
-      className="
-        group
-        bg-[#1e293b]
-        rounded-2xl
-        overflow-hidden
-        border border-slate-700
-        shadow-lg
-        hover:shadow-2xl
-        hover:-translate-y-2
-        transition-all
-        duration-500
-        flex
-        flex-col
-        h-full
-      "
+      className="rounded-2xl overflow-hidden shadow-lg hover:-translate-y-2 transition duration-300 flex flex-col justify-between"
+      style={{ background: 'var(--glass)', border: '1px solid var(--line)' }}
     >
-      {/* Image */}
-      <div className="relative overflow-hidden bg-slate-900">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="
-            w-full
-            aspect-video
-            object-cover
-            object-center
-            group-hover:scale-105
-            transition-transform
-            duration-700
-          "
-        />
+      <div>
+        <img src={project.image} alt={project.title} className="w-full h-52 object-cover" />
+        <div className="p-6 text-center">
+          <h3 className="text-xl font-semibold mb-3" style={{ color: 'var(--text)', fontFamily: 'var(--font-display)' }}>
+            {project.title}
+          </h3>
+          <p className="text-sm mb-4" style={{ color: 'var(--muted)' }}>{project.desc}</p>
 
-        {/* Image Overlay */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-black/0
-            group-hover:bg-black/10
-            transition-all
-            duration-500
-          "
-        />
+          <div className="flex flex-wrap justify-center gap-2 mb-2">
+            {project.techStack?.map((tech, i) => (
+              <span
+                key={i}
+                className="text-xs px-2.5 py-1 rounded-full"
+                style={{ background: 'rgba(255,255,255,0.06)', color: accent, fontFamily: 'var(--font-mono)' }}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-1 text-center">
-        <h3 className="text-2xl font-bold text-white mb-3">
-          {project.title}
-        </h3>
-
-        <p className="text-gray-400 text-sm leading-6 mb-5">
-          {project.desc}
-        </p>
-
-        {/* Tech Stack */}
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
-          {project.techStack.map((tech, i) => (
-            <span
-              key={i}
-              className={`
-                px-3
-                py-1.5
-                rounded-full
-                text-xs
-                font-medium
-                border
-                ${
-                  type === "fullstack"
-                    ? "bg-green-500/10 text-green-400 border-green-500/20"
-                    : "bg-yellow-500/10 text-yellow-400 border-yellow-500/20"
-                }
-              `}
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        {/* Button */}
-        <div className="mt-auto">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              inline-flex
-              items-center
-              justify-center
-              gap-2
-              bg-blue-500
-              hover:bg-blue-600
-              text-white
-              font-medium
-              px-6
-              py-2.5
-              rounded-lg
-              transition-all
-              duration-300
-              hover:scale-105
-            "
-          >
-            Live Demo
-            <span>↗</span>
-          </a>
-        </div>
+      <div className="pb-6 text-center">
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-5 py-2 rounded-full font-semibold transition hover:opacity-90"
+          style={{ background: 'var(--cyan)', color: '#0a0e17' }}
+        >
+          Live Demo
+        </a>
       </div>
     </div>
   );
@@ -161,54 +90,32 @@ function ProjectCard({ project, type }) {
 
 export default function Projects() {
   return (
-    <section className="min-h-screen text-white py-16 px-5">
+    <section className="min-h-screen py-16 px-5">
+      <h2 className="text-4xl font-bold text-center mb-14" style={{ color: 'var(--text)', fontFamily: 'var(--font-display)' }}>
+        My{" "}
+        <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-transparent bg-clip-text">
+          Full Stack Projects
+        </span>
+      </h2>
 
-      {/* ================= FULL STACK ================= */}
-
-      <div className="max-w-6xl mx-auto">
-
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-          My{" "}
-          <span className="bg-gradient-to-r from-green-500 to-emerald-400 text-transparent bg-clip-text">
-            Full Stack Projects
-          </span>
-        </h2>
-
-        {/* 2 cards → 2 columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
-          {fullStackProjects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              type="fullstack"
-            />
-          ))}
-        </div>
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 mb-20">
+        {fullStackProjects.map((project, index) => (
+          <ProjectCard key={index} project={project} accent="#34d399" />
+        ))}
       </div>
 
-      {/* ================= FRONTEND ================= */}
+      <h2 className="text-4xl font-bold text-center mb-14" style={{ color: 'var(--text)', fontFamily: 'var(--font-display)' }}>
+        My{" "}
+        <span className="bg-gradient-to-r from-amber-400 to-rose-400 text-transparent bg-clip-text">
+          FrontEnd Projects
+        </span>
+      </h2>
 
-      <div className="max-w-6xl mx-auto">
-
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-          My{" "}
-          <span className="bg-gradient-to-r from-yellow-500 to-red-500 text-transparent bg-clip-text">
-            FrontEnd Projects
-          </span>
-        </h2>
-
-        {/* 3 cards → 3 columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {frontEndProjects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              type="frontend"
-            />
-          ))}
-        </div>
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+        {frontEndProjects.map((project, index) => (
+          <ProjectCard key={index} project={project} accent="#fbbf24" />
+        ))}
       </div>
-
     </section>
   );
 }

@@ -4,26 +4,20 @@ import Home from './pages/Home'
 import Project from './pages/Project'
 import Skill from './pages/Skill'
 import Contact from './pages/Contact'
-import {BrowserRouter, Route, Routes, } from "react-router-dom"
-import Loader from './Loader/Loader'
-import { useState, useEffect } from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 function App() {
-
-
   return (
-    <div > 
+    <div>
       <BrowserRouter>
-    <Nav/>
-    <Routes>
-     
-      <Route path='/' element={<Home/>}/>
-      <Route path='/project' element={<Project/>}/>
-      <Route path='/Skill' element={<Skill/>}/>
-      <Route path='/Contact' element={<Contact/>}/>
-    
-    </Routes>
-    </BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/project' element={<Project />} />
+          <Route path='/Skill' element={<Skill />} />
+          <Route path='/Contact' element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

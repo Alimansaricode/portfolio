@@ -1,19 +1,33 @@
+import "./Hero.css";
+
+// Dev-themed floating glyphs — a light nod to "full stack developer"
+// without pulling in a 3D engine / video that made the site slow.
+const glyphs = ["{ }", "</>", "=>", "const", "npm i", "( )", "git", "#!/"];
+
 export default function Hero() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#020617]">
+    <div className="hero-bg">
+      <div className="hero-grid" />
+      <div className="hero-orb hero-orb--cyan" />
+      <div className="hero-orb hero-orb--violet" />
+      <div className="hero-orb hero-orb--amber" />
 
-      {/* Blue Glow */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-3xl animate-pulse" />
+      {glyphs.map((g, i) => (
+        <span
+          key={i}
+          className="hero-glyph"
+          style={{
+            left: `${8 + i * 12}%`,
+            fontSize: `${14 + (i % 3) * 6}px`,
+            animationDuration: `${18 + i * 3}s`,
+            animationDelay: `${i * 1.5}s`,
+          }}
+        >
+          {g}
+        </span>
+      ))}
 
-      {/* Cyan Glow */}
-      <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-3xl animate-pulse" />
-
-      {/* Purple Glow */}
-      <div className="absolute -bottom-40 left-1/3 w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-3xl animate-pulse" />
-
-      {/* Grid */}
-      <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[size:50px_50px]" />
-
+      <div className="hero-vignette" />
     </div>
   );
 }

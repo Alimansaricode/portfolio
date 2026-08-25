@@ -1,104 +1,60 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ================= BODY ================= */
+:root{
+  --bg: #0a0e17;
+  --bg-soft: #101526;
+  --cyan: #38bdf8;
+  --violet: #8b5cf6;
+  --amber: #f59e0b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --line: rgba(255,255,255,0.08);
+  --glass: rgba(255,255,255,0.04);
 
-body {
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
   width: 100%;
   min-height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
 }
 
-
-/* ================= HERO ANIMATIONS ================= */
-
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+::selection{
+  background: var(--cyan);
+  color: #0a0e17;
 }
 
-@keyframes imageFloat {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.9);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb{
+  background: var(--bg-soft);
+  border-radius: 20px;
+  border: 2px solid var(--bg);
 }
 
-
-/* Text animations */
-
-.animate-fade-up {
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out forwards;
-}
-
-.animate-fade-up-delay {
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out 0.15s forwards;
-}
-
-.animate-fade-up-delay-2 {
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out 0.3s forwards;
-}
-
-.animate-fade-up-delay-3 {
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out 0.45s forwards;
-}
-
-
-/* Profile image animation */
-
-.animate-image {
-  opacity: 0;
-  animation: imageFloat 1s ease-out 0.2s forwards;
-}
-
-
-/* ================= TECHNOLOGY BADGES ================= */
-
-.tech-badge {
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: rgba(51, 65, 85, 0.8);
-  border: 1px solid rgba(148, 163, 184, 0.15);
-  color: #4ade80;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.tech-badge:hover {
-  transform: translateY(-4px);
-  background: rgba(59, 130, 246, 0.2);
-  color: #60a5fa;
-}
-
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 768px) {
-
-  body {
-    width: 100%;
-    min-height: 100vh;
-  }
-
-  .tech-badge {
-    font-size: 13px;
-    padding: 6px 12px;
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
