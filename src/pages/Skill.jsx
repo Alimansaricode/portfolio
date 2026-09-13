@@ -2,6 +2,8 @@ import { TbBrandTailwind } from "react-icons/tb";
 import { IoLogoGithub } from "react-icons/io5";
 import { SiPostman } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
+import { AiFillDatabase } from "react-icons/ai";
+
 
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaPython } from "react-icons/fa";
 import { SiJavascript, SiMongodb, SiExpress } from "react-icons/si";
@@ -20,6 +22,7 @@ const skills = [
   { name: "GitHub", percent: 90, icon: <IoLogoGithub />, iconColor: "text-gray-300", barColor: "from-gray-400 to-gray-600" },
   { name: "VS Code", percent: 90, icon: <VscVscode />, iconColor: "text-blue-400", barColor: "from-blue-400 to-blue-600" },
   { name: "Postman", percent: 85, icon: <SiPostman />, iconColor: "text-orange-400", barColor: "from-orange-400 to-orange-600" },
+  { name: "DSA", percent: 40, icon: <AiFillDatabase />, iconColor: "text-green-600", barColor: "from-emerald-400 to-emerald-600" },
 ];
 
 export default function Skill() {

@@ -3,6 +3,7 @@ import food from "../assets/image4.jpg";
 import blinkit from "../assets/image2.jpg";
 import fullstack from "../assets/image5.jpg";
 import freelance from "../assets/image6.jpg";
+import ai from "../assets/image11.jpg";
 
 const fullStackProjects = [
   {
@@ -22,6 +23,13 @@ const fullStackProjects = [
 ];
 
 const frontEndProjects = [
+  {
+    title: "Ai Voice Remover",
+    image: ai,
+    desc: "Built using React.js, TailwindCSS and AI technologies.",
+    techStack: [" javaScript", "React.js", "TailwindCSS", "Redux Toolkit GPT-4 API"],
+    link: "https://voiceremove.netlify.app/",
+  },
   {
     title: "E-Commerce App",
     image: ecommerce,
